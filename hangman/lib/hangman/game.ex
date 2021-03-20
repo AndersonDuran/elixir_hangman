@@ -18,11 +18,12 @@ defmodule Hangman.Game do
   end
 
   def make_move(game = %{ game_state: state}, _guess) when state in [:won, :lost] do
-    game
+    { game, tally(game) }
   end
 
   def make_move(game, guess) do
-    accept_move(game, guess, MapSet.member?(game.used, guess))
+    game = accept_move(game, guess, MapSet.member?(game.used, guess))
+    { game, tally(game) }
   end
 
   def tally(game) do
