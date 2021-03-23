@@ -1,0 +1,4 @@
+<h1>Welcome to Hangman</h1>
+
+<%= new_game_button(@conn) %>
+<%# <%= button("New Game", to: Routes.hangman_path(@conn, :create_game)) %>
